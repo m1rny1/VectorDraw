@@ -114,6 +114,7 @@
             this.createToolStripButton.Name = "createToolStripButton";
             this.createToolStripButton.Size = new System.Drawing.Size(29, 29);
             this.createToolStripButton.Text = "&Создать";
+            this.createToolStripButton.Click += new System.EventHandler(this.createToolStripButton_Click);
             // 
             // openToolStripButton
             // 
@@ -133,6 +134,7 @@
             this.saveToolStripButton.Name = "saveToolStripButton";
             this.saveToolStripButton.Size = new System.Drawing.Size(29, 29);
             this.saveToolStripButton.Text = "&Сохранить";
+            this.saveToolStripButton.Click += new System.EventHandler(this.saveToolStripButton_Click);
             // 
             // toolStripSeparator1
             // 

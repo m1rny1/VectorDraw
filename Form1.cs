@@ -40,7 +40,7 @@ namespace vector
                 {
                     var sr = new StreamReader(openDlg.FileName);
                     //sr.ReadToEnd();
-                    statusLabel1.Text = "File " + openDlg.FileName + " loaded";
+                    statusLabel1.Text = "File " + openDlg.FileName + " loaded successfully";
                 }
                 catch (SecurityException ex)
                 {
@@ -48,6 +48,31 @@ namespace vector
                     $"Details:\n\n{ex.StackTrace}");
                 }
             }
+        }
+
+        private void saveToolStripButton_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveDialog = new SaveFileDialog();
+            saveDialog.Filter = "All files (*.*)|*.*|Json files (*.json)|*.json";
+            saveDialog.Title = "Save file";
+            if (saveDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    statusLabel1.Text = "File " + saveDialog.FileName + " saved successfully";
+                }
+                catch (SecurityException ex)
+                {
+                    MessageBox.Show($"Security error.\n\nError message: {ex.Message}\n\n" +
+                    $"Details:\n\n{ex.StackTrace}");
+                }
+            }
+        }
+
+        private void createToolStripButton_Click(object sender, EventArgs e)
+        {
+            TabControl.TabPages.Add("New page");
+            TabControl.SelectedIndex = TabControl.TabPages.Count - 1;
         }
     }
 }
