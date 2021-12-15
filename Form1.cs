@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-using System.Security;
+using System.Security; 
 
 namespace vector
 {
@@ -73,6 +73,33 @@ namespace vector
         {
             TabControl.TabPages.Add("New page");
             TabControl.SelectedIndex = TabControl.TabPages.Count - 1;
+        }
+
+        private void toolButtonLine_Click(object sender, EventArgs e)
+        {
+            //функція виклику малювання лінії
+        }
+
+        private void toolButtonCircle_Click(object sender, EventArgs e)
+        {
+            //функція виклику малювання кола
+        }
+
+        private void toolButtonRectangle_Click(object sender, EventArgs e)
+        {
+            //функція виклику малювання прямокутника
+        }
+
+        private void toolButtonColor_Click(object sender, EventArgs e)
+        {
+            //функція виклику вибору кольору
+            colorDialog1.ShowDialog();
+            toolColorMarker.BackColor = colorDialog1.Color;
+        }
+
+        private void tabPage1_MouseMove(object sender, MouseEventArgs e)
+        {
+            statusLabel1.Text = e.Location.ToString();
         }
     }
 }

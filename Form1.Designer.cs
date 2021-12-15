@@ -44,6 +44,9 @@
             this.toolButtonLine = new System.Windows.Forms.ToolStripButton();
             this.toolButtonCircle = new System.Windows.Forms.ToolStripButton();
             this.toolButtonRectangle = new System.Windows.Forms.ToolStripButton();
+            this.toolButtonColor = new System.Windows.Forms.ToolStripButton();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.toolColorMarker = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1.SuspendLayout();
             this.TabControl.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -88,8 +91,9 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(707, 332);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Page1";
+            this.tabPage1.Text = "New Page";
             this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPage1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.tabPage1_MouseMove);
             // 
             // toolStrip1
             // 
@@ -158,18 +162,20 @@
             this.toolStripSeparator2,
             this.toolButtonLine,
             this.toolButtonCircle,
-            this.toolButtonRectangle});
+            this.toolButtonRectangle,
+            this.toolButtonColor,
+            this.toolColorMarker});
             this.toolStrip2.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
-            this.toolStrip2.Location = new System.Drawing.Point(765, 32);
+            this.toolStrip2.Location = new System.Drawing.Point(760, 32);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(35, 392);
+            this.toolStrip2.Size = new System.Drawing.Size(40, 392);
             this.toolStrip2.TabIndex = 3;
             this.toolStrip2.Text = "toolStrip2";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(32, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(37, 6);
             // 
             // toolButtonLine
             // 
@@ -177,8 +183,9 @@
             this.toolButtonLine.Image = ((System.Drawing.Image)(resources.GetObject("toolButtonLine.Image")));
             this.toolButtonLine.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolButtonLine.Name = "toolButtonLine";
-            this.toolButtonLine.Size = new System.Drawing.Size(32, 31);
+            this.toolButtonLine.Size = new System.Drawing.Size(37, 31);
             this.toolButtonLine.Text = "Line";
+            this.toolButtonLine.Click += new System.EventHandler(this.toolButtonLine_Click);
             // 
             // toolButtonCircle
             // 
@@ -186,8 +193,9 @@
             this.toolButtonCircle.Image = ((System.Drawing.Image)(resources.GetObject("toolButtonCircle.Image")));
             this.toolButtonCircle.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolButtonCircle.Name = "toolButtonCircle";
-            this.toolButtonCircle.Size = new System.Drawing.Size(32, 31);
+            this.toolButtonCircle.Size = new System.Drawing.Size(37, 31);
             this.toolButtonCircle.Text = "Circle";
+            this.toolButtonCircle.Click += new System.EventHandler(this.toolButtonCircle_Click);
             // 
             // toolButtonRectangle
             // 
@@ -195,8 +203,29 @@
             this.toolButtonRectangle.Image = ((System.Drawing.Image)(resources.GetObject("toolButtonRectangle.Image")));
             this.toolButtonRectangle.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolButtonRectangle.Name = "toolButtonRectangle";
-            this.toolButtonRectangle.Size = new System.Drawing.Size(32, 31);
+            this.toolButtonRectangle.Size = new System.Drawing.Size(37, 31);
             this.toolButtonRectangle.Text = "Rectangle";
+            this.toolButtonRectangle.Click += new System.EventHandler(this.toolButtonRectangle_Click);
+            // 
+            // toolButtonColor
+            // 
+            this.toolButtonColor.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolButtonColor.Image = ((System.Drawing.Image)(resources.GetObject("toolButtonColor.Image")));
+            this.toolButtonColor.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolButtonColor.Name = "toolButtonColor";
+            this.toolButtonColor.Size = new System.Drawing.Size(37, 31);
+            this.toolButtonColor.Text = "Color picker";
+            this.toolButtonColor.Click += new System.EventHandler(this.toolButtonColor_Click);
+            // 
+            // toolColorMarker
+            // 
+            this.toolColorMarker.AutoSize = false;
+            this.toolColorMarker.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.toolColorMarker.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolColorMarker.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolColorMarker.Name = "toolColorMarker";
+            this.toolColorMarker.Size = new System.Drawing.Size(35, 35);
+            this.toolColorMarker.Click += new System.EventHandler(this.toolButtonColor_Click);
             // 
             // MainForm
             // 
@@ -241,6 +270,9 @@
         private System.Windows.Forms.ToolStripButton toolButtonCircle;
         private System.Windows.Forms.ToolStripButton toolButtonRectangle;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripButton toolButtonColor;
+        private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.ToolStripButton toolColorMarker;
     }
 }
 
