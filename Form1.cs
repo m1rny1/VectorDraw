@@ -7,14 +7,47 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using System.Security;
 
 namespace vector
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
+        }
+
+        private void toolStripContainer1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            statusLabel1.Text = "VectorDraw 0.0.1 is ready";
+        }
+
+        private void openToolStripButton_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openDlg = new OpenFileDialog();
+            openDlg.Filter = "All files (*.*)|*.*|Json files (*.json)|*.json";
+            openDlg.Title = "Choose file";
+            if (openDlg.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    var sr = new StreamReader(openDlg.FileName);
+                    //sr.ReadToEnd();
+                    statusLabel1.Text = "File " + openDlg.FileName + " loaded";
+                }
+                catch (SecurityException ex)
+                {
+                    MessageBox.Show($"Security error.\n\nError message: {ex.Message}\n\n" +
+                    $"Details:\n\n{ex.StackTrace}");
+                }
+            }
         }
     }
 }
